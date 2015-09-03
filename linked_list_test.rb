@@ -87,4 +87,25 @@ class LinkedListTest < Minitest::Test
 
     refute @linked_list.includes?("tail node value")
   end
+
+  def test_it_can_pop_twice
+    larger_list
+
+    assert @linked_list.includes?("tail node value")
+    assert @linked_list.includes?("node 3 value")
+
+    assert_equal "tail node value", @linked_list.pop
+    assert_equal "node 3 value", @linked_list.pop
+
+    refute @linked_list.includes?("tail node value")
+    refute @linked_list.includes?("node 3 value")
+  end
+
+  def test_it_can_pop_off_the_head_node
+    assert @linked_list.includes?("I'm the value of the head Node!")
+
+    assert_equal "I'm the value of the head Node!", @linked_list.pop
+
+    assert_equal nil, @linked_list.head
+  end
 end

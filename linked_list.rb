@@ -52,11 +52,16 @@ class LinkedList
   def pop
     current_node = @head
 
-    until current_node.next_node.next_node.nil?
-      current_node = current_node.next_node
+    if @head.next_node.nil?
+      value_of_popped = @head.value
+      @head = nil
+    else
+      until current_node.next_node.next_node.nil?
+        current_node = current_node.next_node
+      end
+      value_of_popped = current_node.next_node.value
+      current_node.next_node = nil
     end
-    value_of_popped = current_node.next_node.value
-    current_node.next_node = nil
     value_of_popped
   end
 
