@@ -25,9 +25,7 @@ class LinkedList
   end
 
   def append(new_node_value)
-    current_node = @head
-
-    until current_node.next_node
+    tail.next_node = Node.new(new_node_value)
   end
 
 end

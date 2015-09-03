@@ -38,9 +38,8 @@ class LinkedListTest < Minitest::Test
   end
 
   def test_it_can_append_a_new_node_to_the_list
-    skip
     @linked_list.append("New Node value")
-    assert_equal
+    assert_equal "New Node value", @linked_list.tail.value
   end
 
 end
