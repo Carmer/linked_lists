@@ -1,6 +1,5 @@
 require "./node"
 
-
 class LinkedList
 
   def initialize(head_node_value = nil)
