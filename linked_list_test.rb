@@ -115,8 +115,28 @@ class LinkedListTest < Minitest::Test
 
   def test_it_can_count_a_larger_list
     larger_list
-    
+
     assert_equal 4, @linked_list.count
+  end
+
+  def test_it_can_find_node_by_index
+    larger_list
+
+    result = @linked_list.find_by_index(2)
+
+    assert_equal "node 3 value", result.value
+  end
+
+  def test_it_returns_false_if_index_searched_for_is_larger_than_the_size_of_the_list
+    larger_list
+
+    result = @linked_list.find_by_index(6)
+
+    refute result
+  end
+
+  def method
+    #code
   end
 
 end

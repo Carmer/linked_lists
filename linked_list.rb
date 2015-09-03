@@ -75,4 +75,19 @@ class LinkedList
     list_count
   end
 
+  def find_by_index(index)
+    current_node = @head
+    list_index = 0
+
+    if count > index + 1
+      until list_index == index
+        list_index +=1
+        current_node = current_node.next_node
+      end
+      return current_node
+    else
+      false
+    end
+  end
+
 end
