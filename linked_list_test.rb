@@ -108,4 +108,15 @@ class LinkedListTest < Minitest::Test
 
     assert_equal nil, @linked_list.head
   end
+
+  def test_it_can_count_the_number_of_nodes_in_the_list
+    assert_equal 1, @linked_list.count
+  end
+
+  def test_it_can_count_a_larger_list
+    larger_list
+    
+    assert_equal 4, @linked_list.count
+  end
+
 end

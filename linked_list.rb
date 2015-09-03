@@ -65,4 +65,14 @@ class LinkedList
     value_of_popped
   end
 
+  def count
+    current_node = @head
+    list_count = 1
+    until current_node.next_node.nil?
+      list_count += 1
+      current_node = current_node.next_node
+    end
+    list_count
+  end
+
 end
