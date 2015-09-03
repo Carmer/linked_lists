@@ -135,8 +135,20 @@ class LinkedListTest < Minitest::Test
     refute result
   end
 
-  def method
-    #code
+  def test_it_can_find_position_of_a_node_by_the_value_provided
+    larger_list
+
+    result = @linked_list.find_by_value("node 3 value")
+
+    assert_equal 2, result
+  end
+
+  def test_it_returns_nil_if_the_value_is_not_in_the_list
+    larger_list
+
+    result = @linked_list.find_by_value("value not in the list")
+
+    assert_equal nil, result
   end
 
 end

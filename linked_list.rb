@@ -90,4 +90,18 @@ class LinkedList
     end
   end
 
+  def find_by_value(value)
+    current_node = @head
+    list_index = 0
+    if includes?(value)
+      until current_node.value == value
+        list_index += 1
+        current_node = current_node.next_node
+      end
+      return list_index
+    else
+      return nil
+    end
+  end
+
 end
