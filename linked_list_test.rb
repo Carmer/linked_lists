@@ -151,4 +151,24 @@ class LinkedListTest < Minitest::Test
     assert_equal nil, result
   end
 
+  def test_it_can_remove_a_node_by_the_index
+    larger_list
+    assert_equal 4, @linked_list.count
+
+    assert_equal "node 2 value", @linked_list.remove_by_index(1)
+
+    assert_equal 3, @linked_list.count
+  end
+
+  def test_it_can_remove_the_head_node_by_index_in_larger_list
+    larger_list
+
+    assert_equal 4, @linked_list.count
+
+    assert_equal "I'm the value of the head Node!", @linked_list.remove_by_index(0)
+
+    assert_equal 3, @linked_list.count
+    # assert_equal
+  end
+
 end

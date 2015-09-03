@@ -104,4 +104,27 @@ class LinkedList
     end
   end
 
+  def remove_by_index(index)
+    if index == 0
+      removed_node = @head
+      @head = @head.next_node
+      return removed_node.value
+    end
+
+    current_node = @head
+
+    list_index = 0
+    if count > index + 1
+      until list_index == index - 1
+        list_index += 1
+        current_node = current_node.next_node
+      end
+        removed_node = current_node.next_node
+        current_node.next_node = current_node.next_node.next_node
+        removed_node.value
+    else
+      return nil
+    end
+  end
+
 end
