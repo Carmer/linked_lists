@@ -59,7 +59,7 @@ class LinkedListTest < Minitest::Test
   def larger_list
     @linked_list.append("node 2 value")
     @linked_list.append("node 3 value")
-    @linked_list.append("node 4 value")
+    @linked_list.append("tail node value")
   end
 
   def test_it_can_see_if_a_value_is_in_a_larger_list
@@ -67,7 +67,7 @@ class LinkedListTest < Minitest::Test
 
     result1 = @linked_list.includes?("node 2 value")
     result2 = @linked_list.includes?("node 3 value")
-    result3 = @linked_list.includes?("node 3 value")
+    result3 = @linked_list.includes?("tail node value")
 
     assert result1
     assert result2
@@ -78,5 +78,13 @@ class LinkedListTest < Minitest::Test
     refute @linked_list.includes?("notta value")
   end
 
+  def test_it_can_pop_an_item_off_the_end_of_a_list
+    larger_list
 
+    assert @linked_list.includes?("tail node value")
+
+    assert_equal "tail node value", @linked_list.pop
+
+    refute @linked_list.includes?("tail node value")
+  end
 end
