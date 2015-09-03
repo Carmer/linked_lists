@@ -127,4 +127,22 @@ class LinkedList
     end
   end
 
+  def remove_by_value(value)
+    if @head.value == value
+      removed_node = @head
+      @head = @head.next_node
+      return removed_node.value
+    end
+
+    if includes?(value)
+      current_node = @head
+      until current_node.next_node.value == value
+        current_node = current_node.next_node
+      end
+      removed_node = current_node.next_node
+      current_node.next_node = current_node.next_node.next_node
+      removed_node.value
+    end
+  end
+
 end

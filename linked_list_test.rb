@@ -168,7 +168,26 @@ class LinkedListTest < Minitest::Test
     assert_equal "I'm the value of the head Node!", @linked_list.remove_by_index(0)
 
     assert_equal 3, @linked_list.count
-    # assert_equal
+  end
+
+  def test_it_can_remove_a_node_by_value
+    larger_list
+
+    assert_equal 4, @linked_list.count
+
+    assert_equal "node 2 value", @linked_list.remove_by_value("node 2 value")
+
+    assert_equal 3, @linked_list.count
+  end
+
+  def test_it_can_remove_a_head_node_by_value
+    larger_list
+
+    assert_equal 4, @linked_list.count
+
+    assert_equal "I'm the value of the head Node!", @linked_list.remove_by_value("I'm the value of the head Node!")
+
+    assert_equal 3, @linked_list.count
   end
 
 end
