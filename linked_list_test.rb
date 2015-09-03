@@ -42,4 +42,41 @@ class LinkedListTest < Minitest::Test
     assert_equal "New Node value", @linked_list.tail.value
   end
 
+  def test_it_can_prepend_a_new_node_to_the_list
+    @linked_list.prepend("new head node value")
+    assert_equal "new head node value", @linked_list.head.value
+    refute_equal "I'm the value of the head Node!", @linked_list.head.value
+  end
+
+  def test_it_can_see_if_a_value_is_included_in_the_list
+    assert @linked_list.includes?("I'm the value of the head Node!")
+  end
+
+  def test_it_can_return_false_if_value_not_in_list
+    refute @linked_list.includes?("Value not in list")
+  end
+
+  def larger_list
+    @linked_list.append("node 2 value")
+    @linked_list.append("node 3 value")
+    @linked_list.append("node 4 value")
+  end
+
+  def test_it_can_see_if_a_value_is_in_a_larger_list
+    larger_list
+
+    result1 = @linked_list.includes?("node 2 value")
+    result2 = @linked_list.includes?("node 3 value")
+    result3 = @linked_list.includes?("node 3 value")
+
+    assert result1
+    assert result2
+    assert result3
+  end
+
+  def test_it_can_return_false_if_value_is_not_in_a_larger_list
+    refute @linked_list.includes?("notta value")
+  end
+
+
 end
