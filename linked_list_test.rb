@@ -190,4 +190,12 @@ class LinkedListTest < Minitest::Test
     assert_equal 3, @linked_list.count
   end
 
+  def test_it_can_find_the_distance_between_two_nodes_next_to_eachother
+    larger_list
+
+    result = @linked_list.distance_between("node 2 value", "node 3 value")
+
+    assert_equal 1, result
+  end
+
 end

@@ -144,4 +144,23 @@ class LinkedList
     end
   end
 
+  def distance_between(first_node_value, second_node_value)
+    current_node = @head
+
+    distance = 0
+
+    until current_node.value == first_node_value
+      current_node = current_node.next_node
+    end
+
+    until current_node.value == second_node_value
+      distance += 1
+      current_node = current_node.next_node
+    end
+    distance
+
+
+
+  end
+
 end
